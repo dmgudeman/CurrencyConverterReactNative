@@ -3,6 +3,7 @@ import { View, StatusBar } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { Container } from '../components/Container';
 import { Logo } from '../components/Logo';
+import { Header } from '../components/Header';
 // import { LastConverted } from '../components/Text';
 
 import { InputWithButton } from '../components/TextInput';
@@ -18,14 +19,22 @@ class Home extends Component {
 
   handlePressBaseCurrency = () => {
     console.log('press base');
+    this.props.navigation.navigate('CurrencyList', {title: 'Base Currency'})
   }
 
   handlePressQuoteCurrency = () => {
     console.log('press quote');
+    this.props.navigation.navigate('CurrencyList', {title: 'Quote Currency'})
     
   }
+
   handleTextChange = (text) => {
     console.log('change text', text);
+  }
+
+  handleOptionsPress= () => {
+    console.log('handle Options press');
+    this.props.navigation.navigate('Options', {title: 'Options'})
   }
 
   render() {
@@ -35,6 +44,7 @@ class Home extends Component {
         translucent={false}
         barStyle="light-content" 
       />
+      <Header onPress={this.handleOptionsPress} />
       <Logo />
       <InputWithButton 
         buttonText={TEMP_BASE_CURRENCY}

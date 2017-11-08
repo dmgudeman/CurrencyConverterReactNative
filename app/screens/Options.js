@@ -12,11 +12,12 @@ const ICON_SIZE = 23;
 class Options extends Component {
   
 
-  handleThemesPress = () => {
+  handlePressThemes = () => {
     console.log('press themes');
+    this.props.navigation.navigate('Themes');
   }
 
-  handleSitePress = () => {
+  handlePressSite = () => {
     console.log('press site');
   }
 
@@ -26,7 +27,7 @@ class Options extends Component {
         <StatusBar translucent={false} barStyle="default"/>
         <ListItem
           text="Themes"
-          onPress={this.handleThemesPress}
+          onPress={this.handlePressThemes}
           customIcon={
             <Ionicons name={`${ICON_PREFIX}-arrow-forward`}color={ICON_COLOR} size={ICON_SIZE}/>
           }
@@ -34,7 +35,7 @@ class Options extends Component {
         <Separator/>
         <ListItem
           text="Fixer.io"
-          onPress={this.handleSitePress}
+          onPress={this.handlePressSite}
           customIcon={
             <Ionicons name={`${ICON_PREFIX}-link`} color={ICON_COLOR} size={ICON_SIZE}/>
           }
